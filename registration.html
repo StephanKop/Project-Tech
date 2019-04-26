@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Nate registratie</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles/main.css">
+    </head>
+    <body>
+        <h1>Nate</h1>
+        <form>
+                        <fieldset>
+                           <legend>Adres:</legend>
+                            <label for="naam">Naam</label>
+                            <input type="text" id="naam" name="naam" required/>
+                            <label for="land">Land</label>
+                            <select name="Land" id="land">
+                                <option value="Geen geselecteerd">Geen geselecteerd</option>
+                                <option value="Nederland">Nederland</option>
+                                <option value="Duitsland">Duitsland</option>
+                                <option value="Verenigd Koninkrijk">Verenigd Koninkrijk</option>
+                                <option value="VS">Verenigde Staten</option>
+                            </select>
+                            <label for="postcode">Postcode</label>
+                            <input type="text" name="postcode" id="postcode" pattern="[1-9][0-9]{3}\s?[a-zA-Z]{2}" required/>
+                            <label for="telefoon">Telefoon</label>
+                            <input type="tel" id="telefoon" name="number" pattern="[0-9]{10}" required/>
+                        </fieldset>
+        </form>
+        <a href="">Of meld je hier aan.</a>
+        
+        <script src="script/main.js" async defer></script>
+    </body>
+</html>
