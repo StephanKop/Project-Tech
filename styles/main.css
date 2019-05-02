@@ -1,0 +1,159 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/geeks.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(255, 71, 71, 0.8);
+    color: white;
+}
+
+header h1 {
+    display: flex;
+    font-weight: 100;
+}
+
+/* main {
+    background-image: url("../images/geeks.jpg");
+    background-size: cover;
+} */
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(58, 58, 58, 0.8);
+    /* margin: 1.5em; */
+    width: 25em;
+    margin: auto;
+    margin-top: 4em;
+    padding-top: 1em;
+    /* border-radius: 0.5em; */
+}
+
+form input {
+    margin-bottom: 1em;
+    width: 16em;
+    height: 1.5em;
+    /* border-radius: 0.5em; */
+    font-size: 1.2em;
+    /* padding: 0.4em; */
+    border: none;
+    inset: none;
+    padding-left: 0.5em;
+    background-color: rgb(75, 75, 75);
+    color: white;
+    font-weight: 100;
+}
+
+form textarea {
+    margin-bottom: 1em;
+    width: 16em;
+    /* border-radius: 0.5em; */
+    font-size: 1.2em;
+    /* padding: 0.4em; */
+    border: none;
+    inset: none;
+    padding-left: 0.5em;
+    background-color: rgb(75, 75, 75);
+    color: white;
+    font-weight: 100;
+}
+
+form input::placeholder {
+    color: rgba(255, 255, 255, 0.938);
+    font-weight: 200;
+}
+
+form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.938);
+    font-weight: 200;
+}
+
+form input[type=submit] {
+    width: 16.5em;
+    color: white;
+    height: 1.5em;
+    background-color: rgb(255, 71, 71, 0.8);
+    font-weight: 200;
+}
+
+form select {
+    margin-bottom: 1em;
+    width: 29em;
+    background-color: rgb(75, 75, 75);
+    color: white;
+    border: none;
+    /* font-size: 1.5em; */
+    font-weight: 200em;
+}
+
+h2 {
+    font-weight: 400;
+    margin-left: -7.5em;
+    color: white;
+}
+
+form a {
+    margin: 1.5em;
+    text-decoration: none;
+    color: white;
+}
+
+form fieldset {
+    display: flex;
+    flex-direction: column;
+    border: 0;
+}
+
+form fieldset legend {
+    color: white;
+    font-size: 1.5em;
+    font-weight: 200;
+    margin-bottom: 1em;
+}
+
+form label {
+    color: white;
+    font-size: 1.2em;
+    font-weight: 300;
+    margin-bottom: 1em;
+    max-width: 16em;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    background-color: rgb(58, 58, 58, 0.8);
+}
+
+.row img {
+    width: 7em;
+    height: 7em;
+    margin: 1em;
+    border-radius: 5em;
+}
+
+.avatarhead {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+}
+

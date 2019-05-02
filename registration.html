@@ -6,29 +6,31 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700" rel="stylesheet">
     </head>
     <body>
-        <h1>Nate</h1>
-        <form>
+            <header>
+                    <h1>Nate</h1>
+                    </header>
+        <form action="account1.html">
                         <fieldset>
-                           <legend>Adres:</legend>
-                            <label for="naam">Naam</label>
-                            <input type="text" id="naam" name="naam" required/>
-                            <label for="land">Land</label>
+                           <legend>Gegevens:</legend>
+                            <input type="text" id="naam" name="naam" placeholder="Naam" required/>
                             <select name="Land" id="land">
-                                <option value="Geen geselecteerd">Geen geselecteerd</option>
+                                <option value="Geen geselecteerd">Selecteer een land</option>
                                 <option value="Nederland">Nederland</option>
                                 <option value="Duitsland">Duitsland</option>
                                 <option value="Verenigd Koninkrijk">Verenigd Koninkrijk</option>
                                 <option value="VS">Verenigde Staten</option>
                             </select>
-                            <label for="postcode">Postcode</label>
-                            <input type="text" name="postcode" id="postcode" pattern="[1-9][0-9]{3}\s?[a-zA-Z]{2}" required/>
-                            <label for="telefoon">Telefoon</label>
-                            <input type="tel" id="telefoon" name="number" pattern="[0-9]{10}" required/>
+                            <input type="text" name="postcode" id="postcode" pattern="[1-9][0-9]{3}\s?[a-zA-Z]{2}" placeholder="postcode" required/>
+                            <input type="tel" id="telefoon" name="number" pattern="[0-9]{10}" placeholder="telefoon" required/>
+                            <input type="password" id="newPassword" placeholder="wachtwoord" required/>
+                            <input type="password" id="repeatPassword" placeholder="herhaal wachtwoord" required/>
+                            <input type="submit" value="submit">
+                            <a href="index.html">Of meld je hier aan.</a>
                         </fieldset>
         </form>
-        <a href="">Of meld je hier aan.</a>
         
         <script src="script/main.js" async defer></script>
     </body>
