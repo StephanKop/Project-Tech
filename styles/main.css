@@ -254,8 +254,10 @@ output {
 
 .profileimage img {
     display: flex;
-    width: 27.5em;
-    max-height: 27em;
+    /* width: 27.5em; */
+    width: 100%;
+    max-width: 25em;
+    max-height: 25em;
     margin: auto;
 }
 
