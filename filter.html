@@ -2,7 +2,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Account setup</title>
+        <title>Filter</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles/main.css">
@@ -11,22 +11,26 @@
     <body>
             <div class="backgroundimage"></div>
         <header>
-        <h1>Account</h1>
+            <a href="filter.html">Nate</a>
+            <h1>Matches</h1>
+            <a href="filter.html">Filter</a>
         </header>
-        <form action="avatar.html">
+        <form action="matches.html">
                         <fieldset>
-                           <legend>Mijn interesses:</legend>
-                            <input type="number" id="leeftijd" placeholder="leeftijd" required/>
-                            <label for="profielfoto">Waar ben je in geinteresseerd</label>
+                           <legend>Filter op:</legend>
+                           <label>Afstand</label>
+                           <output id="range_weight_disp"></output>
+                           <input type="range" name="weight" id="range_weight" value="5" min="1" max="100" oninput="range_weight_disp.value = range_weight.value">
+                            <label for="karakterfilter">Filter hier op karakter types</label>
                             <select name="avatar" id="avatar">
                                 <option value="Geen geselecteerd">geen geselecteerd</option>
-                                <option value="Man op zoek naar vrouw">Man op zoek naar vrouw</option>
-                                <option value="Vrouw op zoek naar man">Vrouw op zoek naar man</option>
-                                <option value="Vrouw op zoek naar vrouw">Vrouw op zoek naar vrouw</option>
-                                <option value="Man op zoek naar man">Man op zoek naar man</option>
+                                <option value="Indiana Jones">Indiana Jones</option>
+                                <option value="Iron Man">Iron Man</option>
+                                <option value="Captain America">Captain America</option>
+                                <option value="Hulk">Hulk</option>
                             </select>
                             <input type="text" id="favfilm" placeholder="Favoriete film"/>
-                            <label for="genre">Kies hier je favoriete film genre. Deze keuze weegt zwaar mee in het match algoritme.</label>
+                            <label for="genre">Zoek op genre:</label>
                             <select name="avatar" id="avatar">
                                 <option value="Geen geselecteerd">geen geselecteerd</option>
                                 <option value="syfy">syfy</option>
@@ -35,7 +39,7 @@
                                 <option value="action">action</option>
                                 <option value="horror">horror</option>
                             </select>
-                            <input type="submit" value="volgende">
+                            <input type="submit" value="Filter">
                         </fieldset>
         </form>
         
