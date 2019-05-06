@@ -271,24 +271,119 @@ output {
     color: white;
     background-color: rgb(58, 58, 58, 0.8);
     padding: 1em;
-    height: 15em;
+    /* height: 15em; */
+    display: flex;
+    flex-direction: column;
 }
 
 .description a {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
     width: 16.5em;
-    height: 2.5em;
     border: 0.1em solid;
     border-color: rgb(255, 71, 71, 0.8);
     font-weight: 200;
     margin: auto;
-    margin-top: 2em;
     color: white;
     text-decoration: none;
-    display: flex;
-    justify-content: center;
-    padding-top: 1em;
+    padding: 1em;
+    margin-top: 1em;
 }
 
 .description a:hover {
     background-color: rgb(255, 71, 71, 0.8);
 }
+
+.chatlinks {
+    display: flex;
+    flex-direction: row;
+    width: 15em;
+    background-color: rgb(58, 58, 58, 0.8);
+    margin: 0.5em;
+    border-radius: 1em;
+}
+
+.chatlinks p {
+    color: white;
+    font-weight: 300;
+}
+
+.chatlinks img {
+    width: 3em;
+    height: 3em;
+    border-radius: 5em;
+    margin: 0.5em;
+}
+
+.chatrechts {
+    display: flex;
+    flex-direction: row;
+    width: 15em;
+    background-color: rgb(58, 58, 58, 0.8);
+    margin: 0.5em;
+    border-radius: 1em;
+    float: right;
+}
+
+.chatrechts p {
+    color: white;
+    font-weight: 300;
+}
+
+.chatrechts img {
+    width: 3em;
+    height: 3em;
+    border-radius: 5em;
+    margin: 0.5em;
+}
+
+.chatinput {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    /* background-color: white; */
+    height: 3em;
+    padding: 1em;
+}
+
+.chatinput [type=text] {
+    display: flex;
+    width: 70%;
+    height: 2em;
+    border-radius: 1em;
+    border: none;
+    background-color: rgb(88, 88, 88, 0.8);
+    color: white;
+    padding-left: 0.5em;
+    font-size: 1em;
+}
+
+.chatinput [type=text]:focus {
+    background-color: rgb(148, 148, 148, 0.8);
+}
+
+.chatinput [type=submit] {
+    display: flex;
+    /* width: 10em; */
+    height: 2em;
+    color: white;
+    background-color: rgb(255, 71, 71, 0.8);
+    font-weight: 200;
+    border: none;
+    font-size: 1em;
+    -webkit-appearance: none;
+    margin-left: 1em;
+    border-radius: 1em;
+    padding: 0.5em;
+}
+
+.request {
+    display: flex;
+    margin: auto;
+    position: fixed;
+    bottom: 0;
+}
+
+

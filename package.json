@@ -1,0 +1,27 @@
+{
+    "name": "Nate",
+    "version": "1.0.0",
+    "description": "A dating app to connect people with the same interests anonymously untill they choose otherwise.",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "node index.js"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/superstephan1/Project-Tech.git"
+    },
+    "author": "Stephan",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/superstephan1/Project-Tech/issues"
+    },
+    "homepage": "https://github.com/superstephan1/Project-Tech#readme",
+    "dependencies": {
+      "express": "^4.16.4",
+      "mongodb": "^3.1.13"
+    },
+    "devDependencies": {
+      "eslint": "^5.15.2"
+    }
+  }
