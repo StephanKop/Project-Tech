@@ -53,7 +53,7 @@ header {
 
 header h1 {
     display: flex;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 header a {
@@ -66,12 +66,6 @@ header a {
 
 }
 
-.mainHeader a img {
-    width: 4em;
-    height: 4em;
-    margin-top: -1.5em;
-}
-
 header a img {
     width: 2em;
     height: 2em;
@@ -80,6 +74,18 @@ header a img {
 
 header a img:nth-child(3) {
     height: 1em;
+}
+
+.mainheader {
+    display: flex;
+    justify-content: center;
+}
+
+.mainHeader img {
+    width: 5.5em;
+    height: 5.5em;
+    margin: auto;
+    margin-top: -0.5em;
 }
 
 /* main {
