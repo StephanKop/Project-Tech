@@ -11,16 +11,16 @@
     <body>
             <div class="backgroundimage"></div>
         <header>
-            <a href="filter.html">Nate</a>
-            <h1>Matches</h1>
-            <a href="filter.html">Filter</a>
+                <a href="matches.html"><img src="images/Logo/SVG/nateLogout.svg"></a>
+                <h1>Filter</h1>
+                <a href="filter.html"><img src="images/Logo/SVG/placeholderLogo.svg"></a>
         </header>
         <form action="matches.html">
                         <fieldset>
                            <legend>Filter op:</legend>
-                           <label>Afstand</label>
+                           <label>Afstand&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;km</label>
                            <output id="range_weight_disp"></output>
-                           <input type="range" name="weight" id="range_weight" value="5" min="1" max="100" oninput="range_weight_disp.value = range_weight.value">
+                           <input type="range" name="weight" id="range_weight" value="10" min="10" step="10" max="90" oninput="range_weight_disp.value = range_weight.value">
                             <label for="karakterfilter">Filter hier op karakter types</label>
                             <select name="avatar" id="avatar">
                                 <option value="Geen geselecteerd">geen geselecteerd</option>
@@ -29,6 +29,7 @@
                                 <option value="Captain America">Captain America</option>
                                 <option value="Hulk">Hulk</option>
                             </select>
+                            <label for="favfilm">Zoek op favoriete film</label>
                             <input type="text" id="favfilm" placeholder="Favoriete film"/>
                             <label for="genre">Zoek op genre:</label>
                             <select name="avatar" id="avatar">
