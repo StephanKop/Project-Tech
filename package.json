@@ -18,9 +18,10 @@
   },
   "homepage": "https://github.com/superstephan1/Project-Tech#readme",
   "dependencies": {
+    "camelcase": "^5.3.1",
+    "cows": "^2.1.0",
     "express": "^4.16.4",
-    "mongodb": "^3.1.13",
-    "camelcase": "^5.3.1"
+    "mongodb": "^3.1.13"
   },
   "devDependencies": {
     "eslint": "^5.15.2"

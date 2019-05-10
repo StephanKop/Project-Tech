@@ -296,6 +296,7 @@ form label {
 
 .profileimage {
     width: 100%;
+    /* height: 100%; */
     background-color: rgb(58, 58, 58, 0.8);
 }
 
@@ -303,10 +304,15 @@ form label {
     display: flex;
     /* width: 27.5em; */
     width: 100%;
-    max-width: 25em;
-    max-height: 25em;
+    max-width: 20em;
+    max-height: 20em;
     margin: auto;
+    /* margin-bottom: -1em; */
+    z-index: 1;
+    border-radius: 50em;
     padding-top: 1em;
+    /* box-shadow: 13px 20px 32px -16px rgba(0,0,0,0.75); */
+
 }
 
 .description {
@@ -316,13 +322,14 @@ form label {
     /* height: 15em; */
     display: flex;
     flex-direction: column;
+    z-index: -5;
 }
 
 .description a {
     display: flex;
     justify-content: center;
     flex-direction: row;
-    width: 16.5em;
+    width: 19em;
     border: 0.1em solid;
     border-color: rgb(255, 71, 71, 0.8);
     font-weight: 200;
@@ -336,6 +343,18 @@ form label {
 .description a:hover {
     background-color: rgb(255, 71, 71, 0.8);
 }
+
+/* .description h1 {
+    max-width: 19em;
+    padding-right: 2em;
+    margin: auto;
+}
+
+.description p {
+    max-width: 19em;
+    padding-right: 2em;
+    margin: auto;
+} */
 
 .chatlinks {
     display: flex;
@@ -431,4 +450,83 @@ form label {
     bottom: 0;
 }
 
+/* .requestimage {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: auto;
+    background-color: rgb(58, 58, 58, 0.8);
+}
 
+.requestimage img {
+    display: flex;
+    margin: auto;
+    width: 25em;
+    padding: 1em;
+}
+
+.requestimage a {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 16.5em;
+    border: 0.1em solid;
+    border-color: rgb(255, 71, 71, 0.8);
+    font-weight: 200;
+    margin: auto;
+    color: white;
+    text-decoration: none;
+    padding: 1em;
+    margin-top: 1em;
+}
+
+.requestimage a:hover {
+    background-color: rgb(255, 71, 71, 0.8);
+} */
+
+.warning {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(255, 71, 71, 0.8);
+    color: white;
+    /* margin-bottom: -1em; */
+    margin: auto;
+    padding: 1em;
+    z-index: -10;
+}
+
+/* .descriptionrequest {
+    color: white;
+    background-color: rgb(58, 58, 58, 0.8);
+    padding: 1em;
+    height: 15em;
+    display: flex;
+    flex-direction: column;
+}  */
+
+@keyframes colorchange {
+    0%   {background-color: rgb(255, 71, 71, 0.8);}
+    100% {background-color: rgba(138, 255, 71, 0.8);}
+  }
+
+  @-webkit-keyframes colorchange {
+    0%   {background-color: rgb(255, 71, 71, 0.8);}
+    100% {background-color: rgba(138, 255, 71, 0.8);}
+  }
+
+.confirm {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(255, 71, 71, 0.8);
+    color: white;
+    margin: auto;
+    padding: 1em;
+    z-index: -10;
+    animation-name: colorchange;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+    -webkit-animation-name: colorchange;
+    -webkit-animation-duration: 4s;
+    -webkit-animation-fill-mode: forwards;
+}
