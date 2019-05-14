@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Filter</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700" rel="stylesheet">
+    </head>
+    <body>
+            <div class="backgroundimage"></div>
+        <header>
+                <a href="matches.html"><img src="images/Logo/SVG/nateLogout.svg"></a>
+                <h1>Filter</h1>
+                <a href="filter.html"><img src="images/Logo/SVG/placeholderLogo.svg"></a>
+        </header>
+        <form action="matches.html">
+                        <fieldset>
+                           <legend>Filter op:</legend>
+                           <label>Afstand&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;km</label>
+                           <output id="range_weight_disp"></output>
+                           <input type="range" name="weight" id="range_weight" value="10" min="10" step="10" max="90" oninput="range_weight_disp.value = range_weight.value">
+                            <label for="karakterfilter">Filter hier op karakter types</label>
+                            <select name="avatar" id="avatar">
+                                <option value="Geen geselecteerd">geen geselecteerd</option>
+                                <option value="Indiana Jones">Indiana Jones</option>
+                                <option value="Iron Man">Iron Man</option>
+                                <option value="Captain America">Captain America</option>
+                                <option value="Hulk">Hulk</option>
+                            </select>
+                            <label for="favfilm">Zoek op favoriete film</label>
+                            <input type="text" id="favfilm" placeholder="Favoriete film"/>
+                            <label for="genre">Zoek op genre:</label>
+                            <select name="avatar" id="avatar">
+                                <option value="Geen geselecteerd">geen geselecteerd</option>
+                                <option value="syfy">syfy</option>
+                                <option value="romance">romance</option>
+                                <option value="adventure">adventure</option>
+                                <option value="action">action</option>
+                                <option value="horror">horror</option>
+                            </select>
+                            <input type="submit" value="Filter">
+                        </fieldset>
+        </form>
+        
+        <script src="script/index.js" async defer></script>
+    </body>
+</html>
