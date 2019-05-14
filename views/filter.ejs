@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Filter</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles/main.css">
-        <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700" rel="stylesheet">
-    </head>
-    <body>
-            <div class="backgroundimage"></div>
-        <header>
-                <a href="matches.html"><img src="images/Logo/SVG/nateLogout.svg"></a>
-                <h1>Filter</h1>
-                <a href="filter.html"><img src="images/Logo/SVG/placeholderLogo.svg"></a>
-        </header>
-        <form action="matches.html">
+<% include partials/matchHeader %>
+        <form action="matches">
                         <fieldset>
                            <legend>Filter op:</legend>
                            <label>Afstand&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;km</label>
@@ -43,7 +27,4 @@
                             <input type="submit" value="Filter">
                         </fieldset>
         </form>
-        
-        <script src="script/index.js" async defer></script>
-    </body>
-</html>
+        <% include partials/footer %>

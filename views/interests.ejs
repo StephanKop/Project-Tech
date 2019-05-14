@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Account setup</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles/main.css">
-        <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700" rel="stylesheet">
-    </head>
-    <body>
-            <div class="backgroundimage"></div>
-        <header>
-                <a href="index.html"><img src="images/Logo/SVG/nateLogo.svg"></a>
-                <h1>Account</h1>
-                <a href="index.html"><img src="images/Logo/SVG/loginIcon.svg"></a>
-        </header>
-        <form action="avatar.html">
+<% include partials/registrationHeader %>
+        <form action="avatar">
                         <fieldset>
                            <legend>Mijn interesses:</legend>
                             <input type="number" id="leeftijd" placeholder="leeftijd" required/>
@@ -41,7 +25,4 @@
                             <input type="submit" value="volgende">
                         </fieldset>
         </form>
-        
-        <script src="script/index.js" async defer></script>
-    </body>
-</html>
+        <% include partials/footer %>

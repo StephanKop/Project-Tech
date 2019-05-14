@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Nate registratie</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles/main.css">
-        <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700" rel="stylesheet">
-    </head>
-    <body>
-            <div class="backgroundgif"></div>
-            <header>
-                <a href="index.html"><img src="images/Logo/SVG/nateLogo.svg"></a>
-                <h1>Registration</h1>
-                <a href="index.html"><img src="images/Logo/SVG/loginIcon.svg"></a>
-                    </header>
-        <form action="account1.html">
+<% include partials/registrationHeader %>
+                    <form action="registration2">
                         <fieldset>
                            <legend>Gegevens:</legend>
                             <input type="text" id="naam" name="naam" placeholder="Naam" required/>
@@ -31,10 +15,8 @@
                             <input type="password" id="newPassword" placeholder="wachtwoord" required/>
                             <input type="password" id="repeatPassword" placeholder="herhaal wachtwoord" required/>
                             <input type="submit" value="submit">
-                            <a href="index.html">Of meld je hier aan.</a>
+                            <a href="index">Of meld je hier aan.</a>
                         </fieldset>
         </form>
         
-        <script src="script/index.js" async defer></script>
-    </body>
-</html>
+        <% include partials/footer %>

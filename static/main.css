@@ -88,11 +88,6 @@ header a img:nth-child(3) {
     margin-top: -0.5em;
 }
 
-/* main {
-    background-image: url("../images/geeks.jpg");
-    background-size: cover;
-} */
-
 form {
     display: flex;
     flex-direction: column;
