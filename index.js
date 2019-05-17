@@ -1,7 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
-
 var app = express();
 
 // View Engine
@@ -16,6 +15,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 //set static path
 
 app.use(express.static(path.join(__dirname, 'static')));
+app.use('/static', express.static('static'));
 
 // routes
 app.get('/', function(req, res){
@@ -77,14 +77,20 @@ app.get('/filter', function(req, res){
 //404
 
 app.use(function(req,res){
-    res.type('text/plain')
-    res.status(404)
-    res.send('404 not found')
-})
+    res.type('text/plain');
+    res.status(404);
+    res.send('404 not found');
+});
+
+app.use(function(req,res){
+    res.type('text/plain');
+    res.status(200);
+    res.send('status ok');
+});
 
 app.listen(3000, function(){
     console.log('server started on port 3000...');
-})
+});
 
 // const cows = require('cows');
 // console.log(cows()[15]);
