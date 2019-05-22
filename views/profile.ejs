@@ -1,0 +1,22 @@
+<% include partials/headers/registrationHeader %>
+        <form action="matches">
+                        <fieldset>
+                           <legend>Mijn profiel aanpassen:</legend>
+                            <img class="profileimage" src="../static/images/indi.jpeg">
+                            <label for="profielfoto">Kies hier je nieuwe profielfoto</label>
+                            <input type="file" id="profielfoto" name="profielfoto" accept="image/png, image/jpeg">
+                            <textarea name="user description" cols="109" rows="5" placeholder="Vertel iets over jezelf"></textarea>
+                            <input type="text" id="gebruikersnaam" placeholder="Favoriete film"/>
+                            <select name="avatar" id="avatar">
+                                <option value="Geen geselecteerd">favoriete genre</option>
+                                <option value="syfy">syfy</option>
+                                <option value="romance">romance</option>
+                                <option value="adventure">adventure</option>
+                                <option value="action">action</option>
+                                <option value="horror">horror</option>
+                            </select>
+                            <input type="submit" value="volgende">
+                        </fieldset>
+        </form>
+        <% include partials/footer %>
+        

@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 var app = express();
+const https = require('https');
 
 // View Engine
 app.set('view engine', 'ejs');
@@ -74,6 +75,18 @@ app.get('/filter', function(req, res){
     res.render('filter.ejs');
 });
 
+app.get('/chatlist', function(req, res){
+    res.render('chatlist.ejs');
+});
+
+app.get('/profile', function(req, res){
+    res.render('profile.ejs');
+});
+
+app.get('/apitest', function(req, res){
+    res.render('apiTest.ejs', {data: JSON.parse(data)});
+});
+
 //404
 
 app.use(function(req,res){
@@ -90,6 +103,23 @@ app.use(function(req,res){
 
 app.listen(3000, function(){
     console.log('server started on port 3000...');
+});
+
+// api test
+
+var data = '';
+
+    https.get('https://api.thecatapi.com/v1/images/search?size=full', (resp) => {
+
+    resp.on('data', (chunk) => {
+        data += chunk;
+    });
+
+    resp.on('end', () => {
+        console.log(data);
+    });
+    }).on("error", (err) => {
+    console.log("Error: " + err.message);
 });
 
 // const cows = require('cows');
