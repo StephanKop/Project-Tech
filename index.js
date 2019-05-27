@@ -118,6 +118,7 @@ var data = '';
     resp.on('end', () => {
         console.log(data);
     });
+    
     }).on("error", (err) => {
     console.log("Error: " + err.message);
 });
