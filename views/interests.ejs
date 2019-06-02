@@ -1,26 +1,101 @@
 <% include partials/headers/registrationHeader %>
-        <form action="avatar">
+        <form class="mainform" action="interests" method="POST">
                         <fieldset>
                            <legend>Mijn interesses:</legend>
-                            <input type="number" id="leeftijd" placeholder="leeftijd" required/>
+                            <input type="text" id="username" placeholder="Gebruikersnaam" name="username" required/>
+                            <input type="number" id="leeftijd" placeholder="leeftijd" name="age" required/>
                             <label for="avatar">Waar ben je in geinteresseerd</label>
-                            <select name="avatar" id="avatar">
+                            <select name="preference" id="avatar">
                                 <option value="Geen geselecteerd">geen geselecteerd</option>
                                 <option value="Man op zoek naar vrouw">Man op zoek naar vrouw</option>
                                 <option value="Vrouw op zoek naar man">Vrouw op zoek naar man</option>
                                 <option value="Vrouw op zoek naar vrouw">Vrouw op zoek naar vrouw</option>
                                 <option value="Man op zoek naar man">Man op zoek naar man</option>
                             </select>
-                            <label for="genre">Kies hier je favoriete film.</label>
-                            <input type="text" id="favfilm" placeholder="Favoriete film"/>
                             <label for="genre">Kies hier je favoriete film genre.</label>
-                            <select name="avatar" id="avatar">
+                            <select name="genre" id="avatar">
                                 <option value="Geen geselecteerd">geen geselecteerd</option>
                                 <option value="syfy">syfy</option>
                                 <option value="romance">romance</option>
                                 <option value="adventure">adventure</option>
                                 <option value="action">action</option>
                                 <option value="horror">horror</option>
+                            </select>
+                            <label for="genre">Kies 3 karakter eigenschappen</label>
+                            <select name="trait1" id="avatar">
+                                    <option value="geen geselecteerd">geen geselecteerd</option>
+                                    <option value="actief">actief</option>
+                                    <option value="dankbaar">dankbaar</option>
+                                    <option value="lief">lief</option>
+                                    <option value="sociaal">sociaal</option>
+                                    <option value="vriendelijk">vriendelijk</option>
+                                    <option value="egoistisch">egoistisch</option>
+                                    <option value="grappig">grappig</option>
+                                    <option value="slim">slim</option>
+                                    <option value="onhandig">onhandig</option>
+                                    <option value="eigenwijs">eigenwijs</option>
+                                    <option value="dapper">dapper</option>
+                                    <option value="eerlijk">eerlijk</option>
+                                    <option value="loyaal">loyaal</option>
+                                    <option value="slim">slim</option>
+                                    <option value="eerlijk">eerlijk</option>
+                                    <option value="gezellig">gezellig</option>
+                                    <option value="moedig">moedig</option>
+                                    <option value="spontaan">spontaan</option>
+                                    <option value="ingetogen">ingetogen</option>
+                                    <option value="leergierig">leergierig</option>
+                                    <option value="hooghartig">hooghartig</option>
+                                    <option value="betweter">betweter</option>
+                            </select>
+                            <select name="trait2" id="avatar">
+                                    <option value="geen geselecteerd">geen geselecteerd</option>
+                                    <option value="actief">actief</option>
+                                    <option value="dankbaar">dankbaar</option>
+                                    <option value="lief">lief</option>
+                                    <option value="sociaal">sociaal</option>
+                                    <option value="vriendelijk">vriendelijk</option>
+                                    <option value="egoistisch">egoistisch</option>
+                                    <option value="grappig">grappig</option>
+                                    <option value="slim">slim</option>
+                                    <option value="onhandig">onhandig</option>
+                                    <option value="eigenwijs">eigenwijs</option>
+                                    <option value="dapper">dapper</option>
+                                    <option value="eerlijk">eerlijk</option>
+                                    <option value="loyaal">loyaal</option>
+                                    <option value="slim">slim</option>
+                                    <option value="eerlijk">eerlijk</option>
+                                    <option value="gezellig">gezellig</option>
+                                    <option value="moedig">moedig</option>
+                                    <option value="spontaan">spontaan</option>
+                                    <option value="ingetogen">ingetogen</option>
+                                    <option value="leergierig">leergierig</option>
+                                    <option value="hooghartig">hooghartig</option>
+                                    <option value="betweter">betweter</option>
+                            </select>
+                            <select name="trait3" id="avatar">
+                                    <option value="geen geselecteerd">geen geselecteerd</option>
+                                    <option value="actief">actief</option>
+                                    <option value="dankbaar">dankbaar</option>
+                                    <option value="lief">lief</option>
+                                    <option value="sociaal">sociaal</option>
+                                    <option value="vriendelijk">vriendelijk</option>
+                                    <option value="egoistisch">egoistisch</option>
+                                    <option value="grappig">grappig</option>
+                                    <option value="slim">slim</option>
+                                    <option value="onhandig">onhandig</option>
+                                    <option value="eigenwijs">eigenwijs</option>
+                                    <option value="dapper">dapper</option>
+                                    <option value="eerlijk">eerlijk</option>
+                                    <option value="loyaal">loyaal</option>
+                                    <option value="slim">slim</option>
+                                    <option value="eerlijk">eerlijk</option>
+                                    <option value="gezellig">gezellig</option>
+                                    <option value="moedig">moedig</option>
+                                    <option value="spontaan">spontaan</option>
+                                    <option value="ingetogen">ingetogen</option>
+                                    <option value="leergierig">leergierig</option>
+                                    <option value="hooghartig">hooghartig</option>
+                                    <option value="betweter">betweter</option>
                             </select>
                             <input type="submit" value="volgende">
                         </fieldset>

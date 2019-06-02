@@ -84,7 +84,7 @@ header a img:nth-child(3) {
     margin-top: -0.5em;
 }
 
-form {
+.mainform {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -97,7 +97,7 @@ form {
     /* border-radius: 0.5em; */
 }
 
-form input {
+.mainform input {
     margin-bottom: 1em;
     width: 16em;
     height: 1.5em;
@@ -113,7 +113,7 @@ form input {
     -webkit-appearance: none;
 }
 
-form textarea {
+.mainform textarea {
     margin-bottom: 1em;
     width: 16em;
     /* border-radius: 0.5em; */
@@ -128,39 +128,47 @@ form textarea {
     font-family: inherit;
 }
 
-form input::placeholder {
+.mainform input::placeholder {
     color: rgba(255, 255, 255, 0.425);
     font-weight: 200;
 }
 
-form textarea::placeholder {
+.mainform textarea::placeholder {
     color: rgba(255, 255, 255, 0.425);
     font-weight: 200;
 }
 
-form input[type=submit] {
+.mainform input[type=submit] {
     width: 16.5em;
     color: white;
     height: 1.5em;
     background-color: rgb(255, 71, 71, 0.8);
     font-weight: 200;
     -webkit-appearance: none;
+    opacity: 0.8;
+    transition: 0.3s;
 }
 
-form input[type=file] {
+.mainform input[type=submit]:hover {
+    background-color: rgb(255, 71, 71, 0.8);
+    opacity: 1;
+}
+
+.mainform input[type=file] {
     display: flex;
     padding-top: 0.5em;
     font-weight: 100;
 }
 
-form input[type=range] {
+.mainform input[type=range] {
     margin-top: 0.5em;
 }
 
-form img {
-    width: 100%;
+.mainform img {
+    width: 40%;
     margin: auto;
     margin-bottom: 1em;
+    border-radius: 50em;
 }
 
 output {
@@ -286,6 +294,7 @@ form label {
     margin-top: 5em;
     margin-bottom: -3em;
     max-width: 24.5em;
+    max-height: 10em;
     border-radius: 0.5em;
 }
 
@@ -589,6 +598,63 @@ form label {
     width: 20em;
     height: 20em;
     margin-top: 5em;
+}
+
+#avatarform {
+    display: flex;
+    flex-direction: row;
+    width: 20em;
+    justify-content: center;
+}
+
+#avatarform a {
+    padding-left: 0;
+}
+
+.avatarmatches {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    background-color: rgb(58, 58, 58, 0.8);
+    margin: 0.5em;
+    padding: 1em;
+    /* margin-left: 0; */
+    margin-top: 5em;
+    margin-bottom: -3em;
+    max-height: 10em;
+    border-radius: 0.5em;
+    width: 20em;
+}
+
+.avatarmatches img {
+    width: 7em;
+    height: 7em;
+    margin: 0.5em;
+    margin-left: -3em;
+    border-radius: 5em;
+}
+
+#avatarbutton {
+    width: 11em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    color: white;
+    height: 1.5em;
+    background-color: rgb(255, 71, 71, 0.8);
+    font-weight: 200;
+    border: none;
+    font-size: 1em;
+    -webkit-appearance: none;
+    opacity: 0.8;
+    transition: 0.3;
+}
+
+#avatarbutton:hover {
+    opacity: 1;
+}
+
+.editprofileimage {
+    width: 10em;
 }
 
 

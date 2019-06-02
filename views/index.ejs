@@ -1,4 +1,10 @@
 <% include partials/headers/mainHeader %>
-<% include partials/mainLogin %>
+<form class="mainform" action="/" method="POST">
+    <h2>Aanmelden</h2>
+    <input type="Email" name="email" placeholder="Email">
+    <input type="password" name="password" placeholder="Wachtwoord">
+    <input type="submit">
+    <a href="../registration">Of registreer nu een account</a>
+</form>
 <% include partials/footer %>
 

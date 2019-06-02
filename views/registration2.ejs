@@ -1,11 +1,10 @@
 <% include partials/headers/registrationHeader %>
-        <form action="interests">
+        <form class="mainform" action="registration2" method="POST">
                         <fieldset>
-                           <legend>Mijn profiel:</legend>
-                            <input type="text" id="gebruikersnaam" placeholder="Gebruikersnaam" required/>
+                           <legend>Hi <%= req.session.name %>, we hebben nog wat info van je nodig.</legend>
                             <label for="profielfoto">Kies hier je echte profielfoto</label>
-                            <input type="file" id="profielfoto" name="profielfoto" accept="image/png, image/jpeg">
-                            <textarea name="user description" cols="49" rows="5" placeholder="Vertel iets over jezelf"></textarea>
+                            <input type="file" id="profielfoto" name="profielfoto" accept="image/png, image/jpeg" name="profileimg">
+                            <textarea name="description" cols="49" rows="5" placeholder="Vertel iets over jezelf"></textarea>
                             <input type="submit" value="volgende">
                         </fieldset>
         </form>

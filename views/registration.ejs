@@ -1,19 +1,22 @@
 <% include partials/headers/registrationHeader %>
-                    <form action="registration2">
+                    <form class="mainform" action="registration" method="POST">
+                            <!-- <form action="registration2"> -->
                         <fieldset>
                            <legend>Gegevens:</legend>
-                            <input type="text" id="naam" name="naam" placeholder="Naam" required/>
-                            <select name="Land" id="land">
+                            <input type="text" id="naam" name="name" placeholder="Naam" required/>
+                            <input type="email" id="email" name="email" placeholder="Email" required/>
+                            <input type="password" id="password" name="password" placeholder="Wachtwoord" required/>
+                            <select name="country" id="land">
                                 <option value="Geen geselecteerd">Selecteer een land</option>
                                 <option value="Nederland">Nederland</option>
                                 <option value="Duitsland">Duitsland</option>
                                 <option value="Verenigd Koninkrijk">Verenigd Koninkrijk</option>
                                 <option value="VS">Verenigde Staten</option>
                             </select>
-                            <input type="text" name="postcode" id="postcode" pattern="[1-9][0-9]{3}\s?[a-zA-Z]{2}" placeholder="postcode" required/>
-                            <input type="tel" id="telefoon" name="number" pattern="[0-9]{10}" placeholder="telefoon" required/>
-                            <input type="password" id="newPassword" placeholder="wachtwoord" required/>
-                            <input type="password" id="repeatPassword" placeholder="herhaal wachtwoord" required/>
+                            <input type="text" name="postal" id="postcode" pattern="[1-9][0-9]{3}\s?[a-zA-Z]{2}" placeholder="postcode" required/>
+                            <input type="tel" id="telefoon" name="phone" pattern="[0-9]{10}" placeholder="telefoon" required/>
+                            <!-- <input type="password" id="newPassword" placeholder="wachtwoord" required/>
+                            <input type="password" id="repeatPassword" placeholder="herhaal wachtwoord" required/> -->
                             <input type="submit" value="submit">
                             <a href="/">Of meld je hier aan.</a>
                         </fieldset>

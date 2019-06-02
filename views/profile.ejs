@@ -1,19 +1,94 @@
 <% include partials/headers/logoutHeader %>
-        <form action="matches">
+        <form class="mainform" action="matches">
                         <fieldset>
-                           <legend>Mijn profiel aanpassen:</legend>
-                            <img class="profileimage" src="../static/images/indi.jpeg">
+                           <legend>Hi <%=fullProfile[0].username%>, oftwel <%=fullProfile[0].choice%> pas hier je profiel aan!</legend>
+                            <img class="editprofileimage" src="../static/images/avatars/avatarplaceholder.png">
                             <label for="profielfoto">Kies hier je nieuwe profielfoto</label>
                             <input type="file" id="profielfoto" name="profielfoto" accept="image/png, image/jpeg">
-                            <textarea name="user description" cols="109" rows="5" placeholder="Vertel iets over jezelf"></textarea>
-                            <input type="text" id="gebruikersnaam" placeholder="Favoriete film"/>
+                            <textarea name="user description" cols="109" rows="5" placeholder=<%=fullProfile[0].description%>></textarea>
                             <select name="avatar" id="avatar">
-                                <option value="Geen geselecteerd">favoriete genre</option>
+                                <option value="Geen geselecteerd"><%=fullProfile[0].genre%></option>
                                 <option value="syfy">syfy</option>
                                 <option value="romance">romance</option>
                                 <option value="adventure">adventure</option>
                                 <option value="action">action</option>
                                 <option value="horror">horror</option>
+                            </select>
+                            <label for="genre">pas je eigenschappen aan</label>
+                            <select name="trait1" id="avatar">
+                                    <option value="default"><%=fullProfile[0].trait1%></option>
+                                    <option value="actief">actief</option>
+                                    <option value="dankbaar">dankbaar</option>
+                                    <option value="lief">lief</option>
+                                    <option value="sociaal">sociaal</option>
+                                    <option value="vriendelijk">vriendelijk</option>
+                                    <option value="egoistisch">egoistisch</option>
+                                    <option value="grappig">grappig</option>
+                                    <option value="slim">slim</option>
+                                    <option value="onhandig">onhandig</option>
+                                    <option value="eigenwijs">eigenwijs</option>
+                                    <option value="dapper">dapper</option>
+                                    <option value="eerlijk">eerlijk</option>
+                                    <option value="loyaal">loyaal</option>
+                                    <option value="slim">slim</option>
+                                    <option value="eerlijk">eerlijk</option>
+                                    <option value="gezellig">gezellig</option>
+                                    <option value="moedig">moedig</option>
+                                    <option value="spontaan">spontaan</option>
+                                    <option value="ingetogen">ingetogen</option>
+                                    <option value="leergierig">leergierig</option>
+                                    <option value="hooghartig">hooghartig</option>
+                                    <option value="betweter">betweter</option>
+                            </select>
+                            <select name="trait2" id="avatar">
+                                    <option value="default"><%=fullProfile[0].trait2%></option>
+                                    <option value="actief">actief</option>
+                                    <option value="dankbaar">dankbaar</option>
+                                    <option value="lief">lief</option>
+                                    <option value="sociaal">sociaal</option>
+                                    <option value="vriendelijk">vriendelijk</option>
+                                    <option value="egoistisch">egoistisch</option>
+                                    <option value="grappig">grappig</option>
+                                    <option value="slim">slim</option>
+                                    <option value="onhandig">onhandig</option>
+                                    <option value="eigenwijs">eigenwijs</option>
+                                    <option value="dapper">dapper</option>
+                                    <option value="eerlijk">eerlijk</option>
+                                    <option value="loyaal">loyaal</option>
+                                    <option value="slim">slim</option>
+                                    <option value="eerlijk">eerlijk</option>
+                                    <option value="gezellig">gezellig</option>
+                                    <option value="moedig">moedig</option>
+                                    <option value="spontaan">spontaan</option>
+                                    <option value="ingetogen">ingetogen</option>
+                                    <option value="leergierig">leergierig</option>
+                                    <option value="hooghartig">hooghartig</option>
+                                    <option value="betweter">betweter</option>
+                            </select>
+                            <select name="trait3" id="avatar">
+                                    <option value="default"><%=fullProfile[0].trait3%></option>
+                                    <option value="actief">actief</option>
+                                    <option value="dankbaar">dankbaar</option>
+                                    <option value="lief">lief</option>
+                                    <option value="sociaal">sociaal</option>
+                                    <option value="vriendelijk">vriendelijk</option>
+                                    <option value="egoistisch">egoistisch</option>
+                                    <option value="grappig">grappig</option>
+                                    <option value="slim">slim</option>
+                                    <option value="onhandig">onhandig</option>
+                                    <option value="eigenwijs">eigenwijs</option>
+                                    <option value="dapper">dapper</option>
+                                    <option value="eerlijk">eerlijk</option>
+                                    <option value="loyaal">loyaal</option>
+                                    <option value="slim">slim</option>
+                                    <option value="eerlijk">eerlijk</option>
+                                    <option value="gezellig">gezellig</option>
+                                    <option value="moedig">moedig</option>
+                                    <option value="spontaan">spontaan</option>
+                                    <option value="ingetogen">ingetogen</option>
+                                    <option value="leergierig">leergierig</option>
+                                    <option value="hooghartig">hooghartig</option>
+                                    <option value="betweter">betweter</option>
                             </select>
                             <input type="submit" value="volgende">
                         </fieldset>
