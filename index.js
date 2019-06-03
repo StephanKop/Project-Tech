@@ -36,7 +36,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'static')));
 app.use('/static', express.static('static'));
 
-// sessions
+// sessions setup
 
 app.use(session({
     name: 'Nate_Session',
@@ -66,22 +66,37 @@ app.get('/registration', function(req, res){
 });
 
 app.get('/registration2', function(req, res){
+    if (!req.session.name) {
+        res.redirect('/notLoggedIn')
+    }
     res.render('registration2.ejs', {formName: formName, req: req});
 });
 
 app.get('/interests', function(req, res){
+    if (!req.session.name) {
+        res.redirect('/notLoggedIn')
+    }
     res.render('interests.ejs');
 });
 
 app.get('/avatar', function(req, res, avatarSelect){
+    if (!req.session.name) {
+        res.redirect('/notLoggedIn')
+    }
     res.render('avatar.ejs', {totalAvatarChoices: totalAvatarChoices} );
 });
 
 app.get('/avataredit', function(req, res, avatarSelect){
+    if (!req.session.user) {
+        res.redirect('/notLoggedIn')
+    }
     res.render('avataredit.ejs', {totalAvatarChoices: totalAvatarChoices} );
 });
 
 app.get('/completion', function(req, res){
+    if (!req.session.name) {
+        res.redirect('/notLoggedIn')
+    }
     res.render('completion.ejs');
 });
 
@@ -89,70 +104,70 @@ app.get('/matches', async function(req, res){
     fullProfile = await db.collection('reg1').find({email: req.session.user}).toArray()
         console.log(fullProfile)
     if (!req.session.user) {
-        res.render('notLoggedIn.ejs')
+        res.redirect('/notLoggedIn')
     }
     res.render('matches.ejs');
 });
 
 app.get('/matchprofile', function(req, res){
     if (!req.session.user) {
-        res.render('notLoggedIn.ejs')
+        res.redirect('/notLoggedIn')
     }
     res.render('matchprofile.ejs');
 });
 
 app.get('/chat', function(req, res){
     if (!req.session.user) {
-        res.render('notLoggedIn.ejs')
+        res.redirect('/notLoggedIn')
     }
     res.render('chat.ejs');
 });
 
 app.get('/request', function(req, res){
     if (!req.session.user) {
-        res.render('notLoggedIn.ejs')
+        res.redirect('/notLoggedIn')
     }
     res.render('request.ejs');
 });
 
 app.get('/requestsend', function(req, res){
     if (!req.session.user) {
-        res.render('notLoggedIn.ejs')
+        res.redirect('/notLoggedIn')
     }
     res.render('requestsend.ejs');
 });
 
 app.get('/matchafter', function(req, res){
     if (!req.session.user) {
-        res.render('notLoggedIn.ejs')
+        res.redirect('/notLoggedIn')
     }
     res.render('matchafter.ejs');
 });
 
 app.get('/chataccept', function(req, res){
     if (!req.session.user) {
-        res.render('notLoggedIn.ejs')
+        res.redirect('/notLoggedIn')
     }
     res.render('chataccept.ejs');
 });
 
 app.get('/filter', function(req, res){
     if (!req.session.user) {
-        res.render('notLoggedIn.ejs')
+        res.redirect('/notLoggedIn')
     }
     res.render('filter.ejs');
 });
 
 app.get('/chatlist', function(req, res){
     if (!req.session.user) {
-        res.render('notLoggedIn.ejs')
+        res.redirect('/notLoggedIn')
     }
     res.render('chatlist.ejs');
 });
 
 app.get('/profile', async function(req, res){
     if (!req.session.user) {
-        res.render('notLoggedIn.ejs')
+        res.redirect('/notLoggedIn')
     }
     console.log(fullProfile[0])
     fullProfile = await db.collection('reg1').find({email: req.session.email}).toArray()
@@ -167,6 +182,8 @@ app.get('/logout', function(req, res){
     res.render('logout.ejs',);
 });
 
+// Variables used in the registration process
+
 var formName = []
 var avatarChoice1 = []
 var avatarChoice2 = []
@@ -178,13 +195,13 @@ var description = []
 var fullAvatarChoice = []
 var email = []
 var login = []
+var user = []
+var loginPass = []
+var userData = []
+var userEmail = []
+var userPass = []
 
-    function destroy (req, res) {
-        req.session.destroy(function(err){
-        console.log('u wordt uitgelogd')
-        res.redirect('/');
-        }
-    )}
+// Login & userCheck function called on the POST request from ('/') 
 
 function Login(req, res, next) {
     db.collection('Login').insertOne({
@@ -192,13 +209,15 @@ function Login(req, res, next) {
         password: req.body.password
     }, userCheck)
 
+// userCheck function checks the input data from the login form and the if statement compares it to the database data
+
     async function userCheck() {
         login = await db.collection('Login').find({email: req.body.email}).toArray()
-        var user = await db.collection('reg1').find({email: req.body.email}).toArray()
-        var loginPass = await db.collection('Login').find({password: req.body.password}).toArray()
-        var userData = await db.collection('reg1').find({password: req.body.password}).toArray()
-        var userEmail = user[0].email
-        var userPass = userData[0].password
+        user = await db.collection('reg1').find({email: req.body.email}).toArray()
+        loginPass = await db.collection('Login').find({password: req.body.password}).toArray()
+        userData = await db.collection('reg1').find({password: req.body.password}).toArray()
+        userEmail = user[0].email
+        userPass = userData[0].password
         req.session.user = user[0].email
         req.session.email = user[0].email
         req.session.pw = userData[0].password
@@ -211,7 +230,9 @@ function Login(req, res, next) {
     } 
 }
 
-// mongodb form insert all in 1 collection
+// mongodb form insert 
+// reg 1 creates the document with the data from the first registration page
+// reg 2 and reg 3 add their data to the document created by reg1 so all userdata is in 1 place
 
 function reg1(req, res, next) {
     db.collection('reg1').insertOne({
@@ -255,6 +276,9 @@ function reg2(req, res, next) {
   }
 }
 
+// reg 3 adds the traits from the user to the database
+// the avatarchoice 1, 2 and 3 get the matching trait data from the avatars and totalAvatarChoices concats them to 1 array
+
 function reg3(req, res, next) {
     console.log(formName)
     db.collection('reg1').updateOne(
@@ -283,6 +307,8 @@ function reg3(req, res, next) {
   }
 }
 
+// change is essentially the same function as reg3 however it updates specific data on the input of the user from profile
+
 function change(req, res, next) {
     console.log(fullProfile[0])
     db.collection('reg1').updateOne(
@@ -308,6 +334,8 @@ function change(req, res, next) {
         }
   }
 }
+
+// avatarSelect and avatarEdit updates the user document with the avatar choice
 
 function avatarSelect(req, res, next) {
     console.log(formName)
@@ -350,6 +378,15 @@ function avatarEdit(req, res, next) {
   }
 }
 
+//session destroy function
+
+function destroy (req, res) {
+    req.session.destroy(function(err){
+    console.log('u wordt uitgelogd')
+    res.redirect('/');
+    }
+)}
+
 //404
 
 app.use(function(req,res){
@@ -385,13 +422,6 @@ app.use(function(req,res){
 //     }).on("error", (err) => {
 //     console.log("Error: " + err.message);
 // });
-
-// mongodb login check sessions test
-// function Login(req, res, next) {
-//     req.session.email = req.body.email;
-//     req.session.password = req.body.password;
-//     res.end('done');
-// }
 
 // express tutorial used:
 // https://www.youtube.com/watch?v=gnsO8-xJ8rs&list=FLUxU78Eq_Gp1nP5koyYFm6Q&index=3&t=646s
