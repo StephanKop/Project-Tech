@@ -24,4 +24,7 @@ When the user registers in Nate their information is stored in collection('reg1'
 
 The database consists from 3 collections, Login, Avatars and Reg1. Data from Login will be matched with data from Reg1 and data from Reg1 will be matched with data from Avatars. 
 
+### Database as a service
+The database is hosted on mongodb atlas. Connection info is stored in .env file and are not available in the repo. Please request them if needed.
+
 ![Database structure](https://github.com/superstephan1/Project-Tech/blob/master/projectFiles/database.png "Database structure")
