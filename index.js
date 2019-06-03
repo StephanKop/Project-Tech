@@ -44,7 +44,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     secret: process.env.SESSION_SECRET
-})).listen(3000)
+})).listen(process.env.PORT)
 
 //Forms
 app.use(bodyParser.urlencoded({extended: true}))
