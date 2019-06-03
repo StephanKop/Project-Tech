@@ -1,7 +1,8 @@
 {
+    "name": "nate",
     "builds": [
       { "src": "package.json", "use": "@now/static" },
-      { "src": "*.js", "use": "@now/node" }
+      { "src": "**/*.js", "use": "@now/node" }
     ],
     "routes": [
         { "src": "/", "dest": "views/index.ejs" }
