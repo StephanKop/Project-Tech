@@ -4,7 +4,6 @@
   "description": "A dating app to connect people with the same interests anonymously untill they choose otherwise.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
   "repository": {
