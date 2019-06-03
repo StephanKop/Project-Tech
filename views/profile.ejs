@@ -1,12 +1,12 @@
 <% include partials/headers/logoutHeader %>
-        <form class="mainform" action="matches">
+        <form class="mainform" action="profile" method="POST">
                         <fieldset>
-                           <legend>Hi <%=fullProfile[0].username%>, oftwel <%=fullProfile[0].choice%> pas hier je profiel aan!</legend>
+                           <legend>Hi <b><%=fullProfile[0].username%></b>, oftwel <b><%=fullProfile[0].choice%></b> pas hier je profiel aan!</legend>
                             <img class="editprofileimage" src="../static/images/avatars/avatarplaceholder.png">
                             <label for="profielfoto">Kies hier je nieuwe profielfoto</label>
                             <input type="file" id="profielfoto" name="profielfoto" accept="image/png, image/jpeg">
-                            <textarea name="user description" cols="109" rows="5" placeholder=<%=fullProfile[0].description%>></textarea>
-                            <select name="avatar" id="avatar">
+                            <textarea name="description" cols="109" rows="5"><%=fullProfile[0].description%></textarea>
+                            <select name="genre" id="avatar">
                                 <option value="Geen geselecteerd"><%=fullProfile[0].genre%></option>
                                 <option value="syfy">syfy</option>
                                 <option value="romance">romance</option>

@@ -1,0 +1,17 @@
+<% include partials/headers/registrationHeader %>
+
+<div class="container">
+    <% for (var i=0; i < Object.keys(totalAvatarChoices).length; i++) { %>
+    <form id="avatarmatches" action='avataredit' method='POST'>
+        <div class="avatarmatches">
+            <a href="completion"></a><img src=<%= totalAvatarChoices[i].img %>></a>
+            <div class="avatarhead">
+                <input id="avatarbutton" type="submit" name="choice" value="<%=totalAvatarChoices[i].name%>">
+                <p> <%=totalAvatarChoices[i].trait1%>
+                    <%=totalAvatarChoices[i].trait2%>
+                    <%=totalAvatarChoices[i].trait3%></p>
+            </div>
+        </div>
+    </form>
+    <% } %>
+    <% include partials/footer %>
