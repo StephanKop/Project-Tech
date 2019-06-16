@@ -28,3 +28,6 @@ The database consists from 3 collections, Login, Avatars and Reg1. Data from Log
 The database is hosted on mongodb atlas. Connection info is stored in .env file and are not available in the repo. Please request them if needed.
 
 ![Database structure](https://github.com/superstephan1/Project-Tech/blob/master/projectFiles/database.png "Database structure")
+
+### Login feature
+![Login structure](https://i.imgur.com/Rk99UDc.png "Login structure")
