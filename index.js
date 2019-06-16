@@ -14,7 +14,6 @@ var ObjectID = require('mongodb').ObjectID;
 require('dotenv').config()
 
 var db = null
-// var url = 'mongodb://' + process.env.DB_HOST + ':' + process.env.DB_PORT 
 var url = process.env.MONGODB_URI;
 
 mongo.MongoClient.connect(url, {useNewUrlParser: true},function (err, client) {
@@ -70,7 +69,7 @@ app.get('/registration2', function(req, res){
     if (!req.session.name) {
         res.redirect('/notLoggedIn')
     }
-    res.render('registration2.ejs', {formName: formName, req: req});
+    res.render('registration2.ejs', {req: req});
 });
 
 app.get('/interests', function(req, res){
@@ -84,14 +83,14 @@ app.get('/avatar', function(req, res, avatarSelect){
     if (!req.session.name) {
         res.redirect('/notLoggedIn')
     }
-    res.render('avatar.ejs', {totalAvatarChoices: totalAvatarChoices} );
+    res.render('avatar.ejs', {req: req} );
 });
 
 app.get('/avataredit', function(req, res, avatarSelect){
     if (!req.session.user) {
         res.redirect('/notLoggedIn')
     }
-    res.render('avataredit.ejs', {totalAvatarChoices: totalAvatarChoices} );
+    res.render('avataredit.ejs', {req: req} );
 });
 
 app.get('/completion', function(req, res){
@@ -102,11 +101,12 @@ app.get('/completion', function(req, res){
 });
 
 app.get('/matches', async function(req, res){
-    fullProfile = await db.collection('reg1').find({email: req.session.user}).toArray()
+    var fullProfile = await db.collection('reg1').find({email: req.session.user}).toArray()
         console.log(fullProfile)
     if (!req.session.user) {
         res.redirect('/notLoggedIn')
     }
+    console.log(req.session.user)
     res.render('matches.ejs');
 });
 
@@ -170,8 +170,7 @@ app.get('/profile', async function(req, res){
     if (!req.session.user) {
         res.redirect('/notLoggedIn')
     }
-    console.log(fullProfile[0])
-    fullProfile = await db.collection('reg1').find({email: req.session.email}).toArray()
+    var fullProfile = await db.collection('reg1').find({email: req.session.user}).toArray()
     res.render('profile.ejs', {fullProfile: fullProfile, req, res});
 });
 
@@ -183,28 +182,9 @@ app.get('/logout', function(req, res){
     res.render('logout.ejs',);
 });
 
-// Variables used in the registration process
-
-var formName = []
-var avatarChoice1 = []
-var avatarChoice2 = []
-var avatarChoice3 = []
-var totalAvatarChoices = []
-var username = []
-var fullProfile = []
-var description = []
-var fullAvatarChoice = []
-var email = []
-var login = []
-var user = []
-var loginPass = []
-var userData = []
-var userEmail = []
-var userPass = []
-
 // Login & userCheck function called on the POST request from ('/') 
 
-function Login(req, res, next) {
+function Login(req, res) {
     db.collection('Login').insertOne({
         email: req.body.email,
         password: req.body.password
@@ -213,12 +193,12 @@ function Login(req, res, next) {
 // userCheck function checks the input data from the login form and the if statement compares it to the database data
 
     async function userCheck() {
-        login = await db.collection('Login').find({email: req.body.email}).toArray()
-        user = await db.collection('reg1').find({email: req.body.email}).toArray()
-        loginPass = await db.collection('Login').find({password: req.body.password}).toArray()
-        userData = await db.collection('reg1').find({password: req.body.password}).toArray()
-        userEmail = user[0].email
-        userPass = userData[0].password
+        var login = await db.collection('Login').find({email: req.body.email}).toArray()
+        var user = await db.collection('reg1').find({email: req.body.email}).toArray()
+        var loginPass = await db.collection('Login').find({password: req.body.password}).toArray()
+        var userData = await db.collection('reg1').find({password: req.body.password}).toArray()
+        var userEmail = user[0].email
+        var userPass = userData[0].password
         req.session.user = user[0].email
         req.session.email = user[0].email
         req.session.pw = userData[0].password
@@ -245,24 +225,22 @@ function reg1(req, res, next) {
         phone: req.body.phone
     }, done)
 
-    async function done(err) {
+    function done(err) {
         if (err) {
         next(err)
         } else {
-        formName = req.body.name
-        req.session.name = formName
-        email = req.body.email
-        req.session.email = email
-        console.log(formName)
+        req.session.name = req.body.name
+        req.session.user = req.body.email
+        console.log(req.session.name)
         res.redirect('/registration2')
         }
   }
 }
 
 function reg2(req, res, next) {
-    console.log(formName)
+    console.log(req.session.name)
     db.collection('reg1').updateOne(
-        {name: formName },
+        {name: req.session.name },
         {$set: {
             profileimg: req.body.profileimg,
              description: req.body.description,
@@ -281,9 +259,9 @@ function reg2(req, res, next) {
 // the avatarchoice 1, 2 and 3 get the matching trait data from the avatars and totalAvatarChoices concats them to 1 array
 
 function reg3(req, res, next) {
-    console.log(formName)
+    console.log(req.session.name)
     db.collection('reg1').updateOne(
-        {name: formName },
+        {name: req.session.name },
         {$set: {
         username: req.body.username,
         age: req.body.age,
@@ -298,11 +276,11 @@ function reg3(req, res, next) {
         if (err) {
         next(err)
         } else {
-        avatarChoice1 = await db.collection('avatars').find({trait1: req.body.trait1}).toArray()
-        avatarChoice2 = await db.collection('avatars').find({trait2: req.body.trait2}).toArray()
-        avatarChoice3 = await db.collection('avatars').find({trait3: req.body.trait3}).toArray()
-        totalAvatarChoices = avatarChoice1.concat(avatarChoice2, avatarChoice3);
-        username = req.body.username;
+        var avatarChoice1 = await db.collection('avatars').find({trait1: req.body.trait1}).toArray()
+        var avatarChoice2 = await db.collection('avatars').find({trait2: req.body.trait2}).toArray()
+        var avatarChoice3 = await db.collection('avatars').find({trait3: req.body.trait3}).toArray()
+        req.session.totalAvatarChoices = avatarChoice1.concat(avatarChoice2, avatarChoice3);
+        console.log(req.session.totalAvatarChoices);
         res.redirect('/avatar')
         }
   }
@@ -311,9 +289,9 @@ function reg3(req, res, next) {
 // change is essentially the same function as reg3 however it updates specific data on the input of the user from profile
 
 function change(req, res, next) {
-    console.log(fullProfile[0])
+    console.log(req.session.user)
     db.collection('reg1').updateOne(
-        {name: fullProfile[0].name },
+        {email: req.session.user },
         {$set: {
         description: req.body.description,
         genre: req.body.genre,
@@ -326,11 +304,10 @@ function change(req, res, next) {
         if (err) {
         next(err)
         } else {
-        avatarChoice1 = await db.collection('avatars').find({trait1: req.body.trait1}).toArray()
-        avatarChoice2 = await db.collection('avatars').find({trait2: req.body.trait2}).toArray()
-        avatarChoice3 = await db.collection('avatars').find({trait3: req.body.trait3}).toArray()
-        totalAvatarChoices = avatarChoice1.concat(avatarChoice2, avatarChoice3);
-        // req.session.user = fullProfile[0]
+        var avatarChoice1 = await db.collection('avatars').find({trait1: req.body.trait1}).toArray()
+        var avatarChoice2 = await db.collection('avatars').find({trait2: req.body.trait2}).toArray()
+        var avatarChoice3 = await db.collection('avatars').find({trait3: req.body.trait3}).toArray()
+        req.session.totalAvatarChoices = avatarChoice1.concat(avatarChoice2, avatarChoice3);
         res.redirect('/avataredit')
         }
   }
@@ -339,9 +316,9 @@ function change(req, res, next) {
 // avatarSelect and avatarEdit updates the user document with the avatar choice
 
 function avatarSelect(req, res, next) {
-    console.log(formName)
+    console.log(req.session.name)
     db.collection('reg1').updateOne(
-        {name: formName},
+        {name: req.session.name},
         {$set: {choice : req.body.choice}},
      done)
 
@@ -349,20 +326,15 @@ function avatarSelect(req, res, next) {
         if (err) {
         next(err)
         } else {
-        fullProfile = await db.collection('reg1').find({name: formName}).toArray()
-        fullAvatarChoice = await db.collection('avatars').find({fullProfile}).toArray()
-        req.session.user = fullProfile[0].name
         res.redirect('/completion')
         }
   }
 }
 
-var fullProfilename
-
 function avatarEdit(req, res, next) {
-    console.log(fullProfile[0])
+    console.log(req.body.choice)
     db.collection('reg1').updateOne(
-        {name: fullProfile[0].name},
+        {email: req.session.user},
         {$set: {choice : req.body.choice}},
      done)
 
@@ -370,10 +342,6 @@ function avatarEdit(req, res, next) {
         if (err) {
         next(err)
         } else {
-        fullProfile = await db.collection('reg1').find({name: fullProfile[0].name}).toArray()
-        fullAvatarChoice = await db.collection('avatars').find({fullProfile}).toArray()
-        // req.session.user = fullProfile[0].name
-        console.log(fullProfile[0].name)
         res.redirect('/profile')
         }
   }
@@ -401,28 +369,6 @@ app.use(function(req,res){
     res.status(200);
     res.send('status ok');
 });
-
-// app.get('/apitest', function(req, res){
-//     res.render('apiTest.ejs', {data: JSON.parse(data)});
-// });
-
-// api test
-
-// var data = '';
-
-//     https.get('https://api.thecatapi.com/v1/images/search?size=full', (resp) => {
-
-//     resp.on('data', (chunk) => {
-//         data += chunk;
-//     });
-
-//     resp.on('end', () => {
-//         // console.log(data);
-//     });
-    
-//     }).on("error", (err) => {
-//     console.log("Error: " + err.message);
-// });
 
 // express tutorial used:
 // https://www.youtube.com/watch?v=gnsO8-xJ8rs&list=FLUxU78Eq_Gp1nP5koyYFm6Q&index=3&t=646s
